@@ -1,0 +1,20 @@
+@import "./variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@600;700&display=swap");
+
+#app {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  color: $dark-blue;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+body {
+  margin: 0;
+}

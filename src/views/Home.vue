@@ -1,18 +1,78 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="navbar">
+      <div class="logo"><img src="@/assets/tenisu.svg" alt="" /></div>
+    </div>
+    <div class="select">
+      <h1>Vous êtes plutôt ?</h1>
+      <div class="cards">
+        <ProfilCard route="Frontend" :image="Rainbow" title="Frontend" />
+        <ProfilCard route="Backend" :image="Spider" title="Backend" />
+        <ProfilCard route="Fullstack" :image="Rocket" title="Fullstack" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import ProfilCard from "@/components/ProfilCard.vue";
+import Rainbow from "@/assets/rainbow.png";
+import Spider from "@/assets/spider.png";
+import Rocket from "@/assets/rocket.png";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    ProfilCard,
+  },
+  data() {
+    return {
+      Rainbow,
+      Spider,
+      Rocket,
+    };
   },
 };
 </script>
+
+<style scoped>
+@import "~@/styles/variables.scss";
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f7ff;
+}
+
+.navbar {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding-right: 45px;
+  padding-left: 45px;
+}
+
+.select {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 80px;
+}
+
+h1 {
+  width: 930px;
+  margin: 0 auto;
+  margin-bottom: 56px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  align-items: center;
+}
+</style>
