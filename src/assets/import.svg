@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICONS/import</title>
+    <g id="ICONS/import" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="9" id="import1" stroke="#06326C" stroke-width="1.5" transform="translate(12.000000, 7.000000) scale(1, -1) translate(-12.000000, -7.000000) "></line>
+        <polyline id="import2" stroke="#06326C" stroke-width="1.5" transform="translate(12.000000, 12.250000) scale(1, -1) translate(-12.000000, -12.250000) " points="12.0080923 11 14.5 13.4838676 12.0080923 11 9.5 13.5"></polyline>
+        <polyline id="import3" stroke="#06326C" stroke-width="1.5" points="19 14 19 19 5 19 5 14"></polyline>
+    </g>
+</svg>

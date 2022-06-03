@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="navbar">
-      <div class="logo"><img src="@/assets/tenisu.svg" alt="" /></div>
+      <div class="logo"><img src="@/assets/tenisu.svg" alt="logo" /></div>
     </div>
     <div class="select">
       <h1>Vous êtes plutôt ?</h1>
@@ -45,7 +45,7 @@ export default {
 }
 
 .navbar {
-  height: 100px;
+  height: 80px;
   width: 100%;
   background-color: white;
   position: fixed;
