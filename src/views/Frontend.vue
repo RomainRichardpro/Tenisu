@@ -45,38 +45,51 @@
       <h2>Pour pouvoir résoudre cette mission :</h2>
       <div class="download">
         <Download
+          class="card-download"
           :image="Json"
           title="headtohead.json"
           text="3 Ko"
-          href="https://data.latelier.co/training/tennis_stats/headtohead.json"
-          download="headtohead.json"
+          file="https://data.latelier.co/training/tennis_stats/headtohead.json"
         />
         <Download
+          class="card-download"
           :image="Image"
           title="Ressources"
           text="7,1 Mo"
-          href="https://data.latelier.co/training/tennis_stats/Ressources.zip"
-          download="Ressources"
+          file="https://data.latelier.co/training/tennis_stats/Ressources.zip"
         />
       </div>
       <h2>Les tâches à réaliser :</h2>
       <div class="tasks">
-        <Task
-          title="Tâche n°1"
-          text="Créer une première interface qui affiche tous les joueurs. La liste doit être triée
-du meilleur au moins bon. La version Desktop doit être identique à la maquette.
-La version Mobile doit être une adaptation de la version Desktop. Maquette : ressources/Home.jpg"
-        />
-        <Task
-          title="Tâche n°2"
-          text="Créer une seconde interface qui affiche les informations d’un joueur en particulier.
-La version Desktop doit se rapprocher de la maquette. La version Mobile doit être
-une adaptation de la version Desktop. Maquette : ressources/Details.jpg"
-        />
-        <Task
-          title="Tâche n°3"
-          text="Déployer le projet sur le Cloud de ton choix."
-        />
+        <Task title="Tâche n°1" class="card-task"
+          ><p class="text-tasks">
+            La version Desktop doit être identique à la maquette. La version
+            Mobile doit être une adaptation de la version Desktop.
+          </p>
+          <p>
+            Maquette :
+            <span class="electric-blue-2">ressources/Home.jpg</span>
+          </p>
+        </Task>
+        <Task title="Tâche n°2" class="card-task"
+          ><p class="text-tasks">
+            La version Desktop doit se rapprocher de la maquette. La version
+            Mobile doit être une adaptation de la version Desktop.
+          </p>
+          <p>
+            Maquette :
+            <span class="electric-blue-2">ressources/Details.jpg</span>
+          </p>
+        </Task>
+        <Task title="Tâche n°3" class="card-task"
+          ><p class="text-tasks">
+            Affiche sur la première interface les statistiques retournées par
+            ton API.
+          </p>
+          <p>
+            Maquette : <span class="electric-blue-2">ressources/Home.jpg</span>
+          </p>
+        </Task>
       </div>
     </div>
   </div>
@@ -85,8 +98,8 @@ une adaptation de la version Desktop. Maquette : ressources/Details.jpg"
       <h2>Pour t’aider :</h2>
       <h3 class="colors">Les couleurs :</h3>
       <div class="cards">
-        <Colors name="Orange" info="#F2753B" color="#F2753B" />
-        <Colors name="Orange Light" info="#EBAD65" color="#EBAD65" />
+        <Colors name="Orange" info="#F2753B" :color="orange" />
+        <Colors name="Orange Light" info="#EBAD65" :color="orangeLight" />
         <Colors
           name="Black 30"
           info="#000000, 30% opacity"
@@ -95,19 +108,13 @@ une adaptation de la version Desktop. Maquette : ressources/Details.jpg"
       </div>
       <h3>Les typographies :</h3>
       <p>Montserrat :</p>
-      <div class="code">
-        &lt;<span class="electric-blue">link</span>
-        <span class="green"> href</span>="<span class="orange-light"
-          >https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;900&amp;display=swap</span
-        >" rel="stylesheet"&gt;
-      </div>
+      <Fonts
+        link="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;900&amp;display=swap"
+      />
       <p>Mulish :</p>
-      <div class="code">
-        &lt;<span class="electric-blue">link</span>
-        <span class="green"> href</span>="<span class="orange-light"
-          >https://fonts.googleapis.com/css2?family=Mulish:wght@600;700&amp;display=swap</span
-        >" rel="stylesheet"&gt;
-      </div>
+      <Fonts
+        link="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700&amp;display=swap"
+      />
     </div>
   </div>
 </template>
@@ -118,6 +125,7 @@ import Download from "@/components/Download.vue";
 import Json from "@/assets/json.png";
 import Image from "@/assets/image.png";
 import Task from "@/components/Task.vue";
+import Fonts from "@/components/Fonts.vue";
 
 export default {
   name: "Frontend",
@@ -125,21 +133,33 @@ export default {
     Colors,
     Download,
     Task,
+    Fonts,
   },
   data() {
+    const orange = getComputedStyle(document.documentElement).getPropertyValue(
+      "--orange"
+    );
+    const orangeLight = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--orange-light");
     return {
       Json,
       Image,
+      orange,
+      orangeLight,
     };
   },
   mounted() {
-    window.onscroll = function () {
+    window.onscroll = this.onScroll;
+  },
+  methods: {
+    onScroll() {
       if (window.scrollY > 50) {
         document.getElementById("navBar").classList.add("scrolled");
       } else {
         document.getElementById("navBar").classList.remove("scrolled");
       }
-    };
+    },
   },
 };
 </script>
@@ -205,40 +225,108 @@ nav.scrolled {
   gap: 24px;
 }
 
+.text-tasks {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
 .cards {
   display: flex;
   gap: 24px;
 }
 
-.code {
-  background-color: #031e41;
-  padding: 16px 24px;
-  border-radius: 8px;
-  font-family: "Mulish", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  color: white;
-  white-space: nowrap;
-  overflow: auto;
-  margin-top: 16px;
-  margin-bottom: 24px;
-}
-
-span.electric-blue {
+span.electric-blue-2 {
+  font-style: italic;
   color: $electric-blue;
+  font-weight: 600;
 }
 
-span.green {
-  color: $green;
+@media (max-width: 1230px) {
+  .back {
+    position: static;
+  }
+
+  h1 {
+    margin-top: 40px;
+  }
 }
 
-span.orange-light {
-  color: $orange-light;
+@media (max-width: 1020px) {
+  .content {
+    width: 800px;
+  }
+  .tasks {
+    flex-wrap: nowrap;
+  }
 }
 
-// li {
-//   &::marker {
-//     width: 30px;
-//     background-color: red;
-//   }
-// }
+@media (max-width: 865px) {
+  .content {
+    width: 700px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+
+  .tasks {
+    flex-wrap: wrap;
+  }
+
+  .card-task {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .content {
+    width: 600px;
+  }
+}
+
+@media (max-width: 670px) {
+  .content {
+    width: 550px;
+  }
+
+  .download {
+    flex-direction: column;
+  }
+
+  .card-download {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 500px;
+  }
+}
+
+@media (max-width: 515px) {
+  .content {
+    width: 400px;
+  }
+
+  h1 {
+    line-height: 32px;
+  }
+
+  h2 {
+    line-height: 32px;
+  }
+}
+
+@media (max-width: 430px) {
+  .content {
+    width: 350px;
+  }
+}
+
+@media (max-width: 380px) {
+  .content {
+    width: 300px;
+  }
+}
 </style>

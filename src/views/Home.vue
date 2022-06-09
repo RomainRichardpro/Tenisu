@@ -75,4 +75,52 @@ h1 {
   gap: 90px;
   align-items: center;
 }
+
+@media (max-width: 975px) {
+  .cards {
+    gap: 56px;
+  }
+
+  h1 {
+    width: 862px;
+  }
+}
+
+@media (max-width: 975px) {
+  .card {
+    width: 200px;
+  }
+
+  h1 {
+    width: 712px;
+  }
+}
+
+@media (max-width: 750px) {
+  .select {
+    justify-content: space-evenly;
+    padding-bottom: 200px;
+    padding-top: 200px;
+  }
+
+  h1 {
+    width: auto;
+  }
+
+  .card {
+    width: 70%;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 24px;
+    height: 550px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+}
 </style>

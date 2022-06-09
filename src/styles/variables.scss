@@ -1,5 +1,11 @@
 $dark-blue: #06326c;
 $electric-blue: #0068ff;
 $green: #00EC7B;
-$orange: #F2753B;
-$orange-light: #EBAD65;
+
+:root {
+    --orange: #F2753B;
+    --orange-light: #EBAD65;
+}
+
+$orange: var(--orange);
+$orange-light: var(--orange-light);

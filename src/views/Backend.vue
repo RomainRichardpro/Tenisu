@@ -40,24 +40,37 @@
         <li>Envoyer le lien de ton repo</li>
       </ul>
       <h2>Pour pouvoir résoudre cette mission :</h2>
-      <Download :image="Json" title="headtohead.json" text="3 Ko" />
+      <Download
+        :image="Json"
+        title="headtohead.json"
+        text="3 Ko"
+        file="https://data.latelier.co/training/tennis_stats/headtohead.json"
+      />
       <h2>Les tâches à réaliser :</h2>
       <div class="tasks">
-        <Task
-          title="Tâche n°1"
-          text="Créer un endpoint qui retourne tous les joueurs. 
-La liste doit être triée du meilleur au moins bon."
-        />
-        <Task
-          title="Tâche n°2"
-          text="Créer un endpoint qui permet de retourner 
-les informations d’un joueur grâce à son ID."
-        />
-        <Task
-          title="Tâche n°3"
-          text="Créer un endpoint qui retourne les statistiques suivantes : - Pays qui a le plus grand ratio de parties gagnées - IMC moyen de tous les joueurs - La médiane de la taille des joueurs"
-        />
-        <Task title="Tâche n°4" text="Déploie ton projet sur le Cloud." />
+        <Task title="Tâche n°1" class="card-task"
+          ><p class="text-tasks">
+            Crée un endpoint qui retourne les joueurs. La liste doit être triée
+            du meilleur au moins bon.
+          </p>
+        </Task>
+        <Task title="Tâche n°2" class="card-task"
+          ><p class="text-tasks">
+            Créer un endpoint qui permet de retourner les informations d’un
+            joueur grâce à son ID.
+          </p>
+        </Task>
+        <Task title="Tâche n°3" class="card-task"
+          ><p class="text-tasks">
+            Créer un endpoint qui retourne les statistiques suivantes :
+          </p>
+          <p>- Pays qui a le plus grand ratio de parties gagnées</p>
+          <p>- IMC moyen de tous les joueurs</p>
+          <p class="text-tasks">- La médiane de la taille des joueurs</p>
+        </Task>
+        <Task title="Tâche n°4" class="card-task"
+          ><p class="text-tasks">Déploie ton projet sur le Cloud.</p>
+        </Task>
       </div>
     </div>
   </div>
@@ -80,13 +93,16 @@ export default {
     };
   },
   mounted() {
-    window.onscroll = function () {
+    window.onscroll = this.onScroll;
+  },
+  methods: {
+    onScroll() {
       if (window.scrollY > 50) {
         document.getElementById("navBar").classList.add("scrolled");
       } else {
         document.getElementById("navBar").classList.remove("scrolled");
       }
-    };
+    },
   },
 };
 </script>
@@ -141,5 +157,96 @@ span.electric-blue {
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 24px;
+}
+
+.text-tasks {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1230px) {
+  .back {
+    position: static;
+  }
+
+  h1 {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .content {
+    width: 800px;
+  }
+}
+
+@media (max-width: 865px) {
+  .content {
+    width: 700px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+
+  .tasks {
+    flex-wrap: wrap;
+  }
+
+  .card-task {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .content {
+    width: 600px;
+  }
+}
+
+@media (max-width: 670px) {
+  .content {
+    width: 550px;
+  }
+
+  .download {
+    flex-direction: column;
+  }
+
+  .card-download {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 500px;
+  }
+}
+
+@media (max-width: 515px) {
+  .content {
+    width: 400px;
+  }
+
+  h1 {
+    line-height: 32px;
+  }
+
+  h2 {
+    line-height: 32px;
+  }
+}
+
+@media (max-width: 430px) {
+  .content {
+    width: 350px;
+  }
+}
+
+@media (max-width: 380px) {
+  .content {
+    width: 300px;
+  }
 }
 </style>

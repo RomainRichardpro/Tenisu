@@ -1,10 +1,15 @@
 <template>
-  <div class="card" :style="{ backgroundColor: color }">
+  <div
+    @click="copy"
+    @mouseleave="leave"
+    class="card"
+    :style="{ backgroundColor: color }"
+  >
     <div class="card-content">
       <div class="name">{{ name }}</div>
       <div class="info">{{ info }}</div>
     </div>
-    <button class="button">Copier</button>
+    <button class="button">{{ paste }}</button>
   </div>
 </template>
 
@@ -15,6 +20,23 @@ export default {
     name: String,
     info: String,
     color: String,
+  },
+  data() {
+    return {
+      paste: "Copier",
+    };
+  },
+  mounted() {
+    console.log(this.color);
+  },
+  methods: {
+    copy() {
+      navigator.clipboard.writeText(this.info);
+      this.paste = "Copié !";
+    },
+    leave() {
+      this.paste = "Copier";
+    },
   },
 };
 </script>

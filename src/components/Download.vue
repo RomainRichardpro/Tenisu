@@ -1,19 +1,14 @@
 <template>
-  <div class="card" @click="download">
+  <a class="card" :href="file" target="_blank" @click="download">
     <div class="image-container">
       <img class="image" :src="image" :alt="title" />
     </div>
     <div class="title">{{ title }}</div>
     <div class="text">{{ text }}</div>
-    <a
-      class="link"
-      href="https://data.latelier.co/training/tennis_stats/headtohead.json"
-      target="_blank"
-      download="headtohead.json"
-    >
+    <div class="link" :href="file" target="_blank">
       <img src="@/assets/import.svg" alt="logo" />
-    </a>
-  </div>
+    </div>
+  </a>
 </template>
 
 <script>
@@ -23,20 +18,8 @@ export default {
     title: String,
     image: String,
     text: String,
+    file: String,
   },
-  // methods: {
-  //   download() {
-  //     const url =
-  //       "https://data.latelier.co/training/tennis_stats/headtohead.json";
-  //     const a = document.createElement("a");
-  //     a.href = url;
-  //     a.target = "_blank";
-  //     a.download = url.split("/").pop();
-  //     document.body.appendChild(a);
-  //     a.click();
-  //     document.body.removeChild(a);
-  //   },
-  // },
 };
 </script>
 
@@ -70,6 +53,15 @@ export default {
   &:hover {
     background: rgba($electric-blue, 0.1);
     outline: 6px solid rgba($electric-blue, 0.2);
+
+    .link {
+      background: $electric-blue;
+      border: 2px solid $electric-blue;
+
+      img {
+        filter: brightness(100);
+      }
+    }
   }
 
   .text {
@@ -84,16 +76,12 @@ export default {
     border-radius: 8px;
     width: 32px;
     height: 32px;
-    outline: 2px solid white;
+    border: 2px solid #d9e9ff;
     padding: 4px;
     transition: 0.3s;
-
-    &:hover {
-      background: $electric-blue;
-      border-radius: 8px;
-      outline: 2px solid $electric-blue;
-      transition: 0.3s;
-    }
+    display: flex;
+    align-content: center;
+    justify-content: center;
   }
 }
 </style>
