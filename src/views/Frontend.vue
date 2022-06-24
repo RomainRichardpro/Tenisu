@@ -235,6 +235,10 @@ nav.scrolled {
   gap: 24px;
 }
 
+span.electric-blue {
+  color: $electric-blue;
+}
+
 span.electric-blue-2 {
   font-style: italic;
   color: $electric-blue;
