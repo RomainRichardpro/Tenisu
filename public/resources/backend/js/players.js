@@ -6,10 +6,10 @@ export const players = [
     shortname: 'N.DJO',
     sex: 'M',
     country: {
-      picture: 'https://data.latelier.co/training/tennis_stats/resources/Serbie.png',
+      pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Serbie.png',
       code: 'SRB'
     },
-    picture: 'https://data.latelier.co/training/tennis_stats/resources/Djokovic.png',
+    pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Djokovic.png',
     data: {
       rank: 2,
       points: 2542,
@@ -26,10 +26,10 @@ export const players = [
     shortname: 'V.WIL',
     sex: 'F',
     country: {
-      picture: 'https://data.latelier.co/training/tennis_stats/resources/USA.png',
+      pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/USA.png',
       code: 'USA'
     },
-    picture: 'https://data.latelier.co/training/tennis_stats/resources/Venus.webp',
+    pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Venus.webp',
     data: {
       rank: 52,
       points: 1105,
@@ -46,10 +46,10 @@ export const players = [
     shortname: 'S.WAW',
     sex: 'M',
     country: {
-      picture: 'https://data.latelier.co/training/tennis_stats/resources/Suisse.png',
+      pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Suisse.png',
       code: 'SUI'
     },
-    picture: 'https://data.latelier.co/training/tennis_stats/resources/Wawrinka.png',
+    pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Wawrinka.png',
     data: {
       rank: 21,
       points: 1784,
@@ -66,10 +66,10 @@ export const players = [
     shortname: 'S.WIL',
     sex: 'F',
     country: {
-      picture: 'https://data.latelier.co/training/tennis_stats/resources/USA.png',
+      pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/USA.png',
       code: 'USA'
     },
-    picture: 'https://data.latelier.co/training/tennis_stats/resources/Serena.png',
+    pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Serena.png',
     data: {
       rank: 10,
       points: 3521,
@@ -86,10 +86,10 @@ export const players = [
     shortname: 'R.NAD',
     sex: 'M',
     country: {
-      picture: 'https://data.latelier.co/training/tennis_stats/resources/Espagne.png',
+      pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Espagne.png',
       code: 'ESP'
     },
-    picture: 'https://data.latelier.co/training/tennis_stats/resources/Nadal.png',
+    pictureUrl: 'https://data.latelier.co/training/tennis_stats/resources/Nadal.png',
     data: {
       rank: 1,
       points: 1982,

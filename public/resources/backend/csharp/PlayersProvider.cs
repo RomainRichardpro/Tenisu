@@ -2,7 +2,7 @@
 
 public class CountryDto
 {
-    public string Picture { get; set; }
+    public string PictureUrl { get; set; }
     public string Code { get; set; }
 }
 
@@ -24,7 +24,7 @@ public class PlayerDto
     public string Shortname { get; set; }
     public string Sex { get; set; }
     public CountryDto Country { get; set; }
-    public string Picture { get; set; }
+    public string PictureUrl { get; set; }
     public DataDto Data { get; set; }
 }
 
@@ -37,13 +37,13 @@ public class PlayersProvider
             Country = new CountryDto
             {
                 Code = "SRB",
-                Picture = "https://data.latelier.co/training/tennis_stats/resources/Serbie.png"
+                PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Serbie.png"
             },
             Id = 52,
             Firstname = "Novak",
             Lastname = "Djokovic",
             Shortname = "N.DJO",
-            Picture = "https://data.latelier.co/training/tennis_stats/resources/Djokovic.png",
+            PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Djokovic.png",
             Sex = "M",
             Data = new DataDto
             {
@@ -61,13 +61,13 @@ public class PlayersProvider
             Country = new CountryDto
             {
                 Code = "USA",
-                Picture = "https://data.latelier.co/training/tennis_stats/resources/USA.png"
+                PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/USA.png"
             },
             Id = 95,
             Firstname = "Venus",
             Lastname = "Williams",
             Shortname = "V.WIL",
-            Picture = "https://data.latelier.co/training/tennis_stats/resources/Venus.webp",
+            PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Venus.webp",
             Sex = "F",
             Data = new DataDto
             {
@@ -85,13 +85,13 @@ public class PlayersProvider
             Country = new CountryDto
             {
                 Code = "SUI",
-                Picture = "https://data.latelier.co/training/tennis_stats/resources/Suisse.png"
+                PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Suisse.png"
             },
             Id = 65,
             Firstname = "Stan",
             Lastname = "Wawrinka",
             Shortname = "S.WAW",
-            Picture = "https://data.latelier.co/training/tennis_stats/resources/Wawrinka.png",
+            PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Wawrinka.png",
             Sex = "M",
             Data = new DataDto
             {
@@ -109,13 +109,13 @@ public class PlayersProvider
             Country = new CountryDto
             {
                 Code = "USA",
-                Picture = "https://data.latelier.co/training/tennis_stats/resources/USA.png"
+                PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/USA.png"
             },
             Id = 102,
             Firstname = "Serena",
             Lastname = "Williams",
             Shortname = "S.WIL",
-            Picture = "https://data.latelier.co/training/tennis_stats/resources/Serena.png",
+            PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Serena.png",
             Sex = "F",
             Data = new DataDto
             {
@@ -133,13 +133,13 @@ public class PlayersProvider
             Country = new CountryDto
             {
                 Code = "ESP",
-                Picture = "https://data.latelier.co/training/tennis_stats/resources/Espagne.png"
+                PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Espagne.png"
             },
             Id = 17,
             Firstname = "Rafael",
             Lastname = "Nadal",
             Shortname = "R.NAD",
-            Picture = "https://data.latelier.co/training/tennis_stats/resources/Nadal.png",
+            PictureUrl = "https://data.latelier.co/training/tennis_stats/resources/Nadal.png",
             Sex = "M",
             Data = new DataDto
             {

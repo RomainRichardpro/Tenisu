@@ -1,9 +1,9 @@
 public class CountryDto {
-    public CountryDto(String code, String picture) {
+    public CountryDto(String code, String pictureUrl) {
         this.code = code;
-        this.picture = picture;
+        this.pictureUrl = pictureUrl;
     }
 
-    public String picture;
+    public String pictureUrl;
     public String code;
 }
