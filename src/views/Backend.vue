@@ -13,7 +13,11 @@
         test technique.
       </p>
       <h2>Votre mission :</h2>
-      <p>
+      <p v-if="onSite">
+        Créer une API simple permettant de retourner les statistiques des
+        joueurs de tennis. Tu as une heure pour compléter les 3 tâches.
+      </p>
+      <p v-else>
         Créer une API simple permettant de retourner les statistiques des
         joueurs de tennis. Les trois premières tâches devraient prendre
         <b>environ une heure</b>. Tu as le choix de réaliser la 4ème tâche sur
@@ -26,10 +30,16 @@
         <li>L’architecture applicative</li>
         <li>L’API devra respecter les fondamentaux REST</li>
         <li>Les exceptions devront être gérées</li>
-        <li>L’implémentation des tests unitaires</li>
+        <li v-if="!onSite">L’implémentation des tests unitaires</li>
       </ul>
-      <h2>Ce que l’on demande :</h2>
-      <ul>
+      <br v-if="onSite" />
+      <p v-if="onSite">
+        Au vu de la courte durée du test, nous n'attendons pas de tests
+        unitaires, mais tu devras nous expliquer, pendant l'entretien qui suit,
+        quels tests tu aurais mis en place si tu avais eu plus de temps.
+      </p>
+      <h2 v-if="!onSite">Ce que l’on demande :</h2>
+      <ul v-if="!onSite">
         <li>Créer un nouveau repo Github</li>
         <li>Compléter les tâches avec tes technos préférées</li>
         <li>Créer le projet from scratch</li>
@@ -40,11 +50,15 @@
         <li>Envoyer le lien de ton repo</li>
       </ul>
       <h2>Pour pouvoir résoudre cette mission :</h2>
+      <p v-if="onSite">
+        Nous te fournissons des DTOs déjà remplis afin de simuler un appel
+        externe à une API qui renvoie une liste de joueurs.
+      </p>
       <Download
         :image="Json"
-        title="headtohead.json"
-        text="3 Ko"
-        file="https://data.latelier.co/training/tennis_stats/headtohead.json"
+        :title="file.name"
+        :text="file.size"
+        :file="file.path"
       />
       <h2>Les tâches à réaliser :</h2>
       <div class="tasks">
@@ -66,9 +80,18 @@
           </p>
           <p>- Pays qui a le plus grand ratio de parties gagnées</p>
           <p>- IMC moyen de tous les joueurs</p>
-          <p class="text-tasks">- La médiane de la taille des joueurs</p>
+          <p class="text-tasks">
+            - La
+            <a
+              style="text-decoration: underline"
+              href="https://fr.wikipedia.org/wiki/Glossaire_des_statistiques#M%C3%A9diane"
+              target="_blank"
+              >médiane</a
+            >
+            de la taille des joueurs
+          </p>
         </Task>
-        <Task title="Tâche n°4" class="card-task"
+        <Task v-if="!onSite" title="Tâche n°4" class="card-task"
           ><p class="text-tasks">Déploie ton projet sur le Cloud.</p>
         </Task>
       </div>
@@ -90,10 +113,43 @@ export default {
   data() {
     return {
       Json,
+      onSite: false,
+      file: {
+        name: "headtohead.json",
+        size: "3 Ko",
+        path: "https://data.latelier.co/training/tennis_stats/headtohead.json",
+      },
     };
   },
   mounted() {
     window.onscroll = this.onScroll;
+
+    switch (this.$route.query.onSiteLang) {
+      case "cs":
+        this.onSite = true;
+        this.file = {
+          name: "PlayersProvider.cs",
+          size: "5 Ko",
+          path: "/resources/backend/csharp/PlayersProvider.cs",
+        };
+        break;
+      case "java":
+        this.onSite = true;
+        this.file = {
+          name: "PlayersProvider.zip",
+          size: "2 Ko",
+          path: "/resources/backend/java/PlayersProvider.zip",
+        };
+        break;
+      case "js":
+        this.onSite = true;
+        this.file = {
+          name: "players.js",
+          size: "2 Ko",
+          path: "/resources/backend/js/players.js",
+        };
+        break;        
+    }
   },
   methods: {
     onScroll() {
