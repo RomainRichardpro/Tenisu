@@ -124,7 +124,7 @@ export default {
   mounted() {
     window.onscroll = this.onScroll;
 
-    switch (this.$route.query.onSite) {
+    switch (this.$route.query.onSiteLang) {
       case "cs":
         this.onSite = true;
         this.file = {
