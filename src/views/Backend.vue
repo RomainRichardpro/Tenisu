@@ -13,7 +13,7 @@
         test technique.
       </p>
       <h2>Votre mission :</h2>
-      <p v-if="surPlace">
+      <p v-if="onSiteLang">
         Créer une API simple permettant de retourner les statistiques des
         joueurs de tennis. Tu as une heure pour compléter les 3 tâches.
       </p>
@@ -30,16 +30,16 @@
         <li>L’architecture applicative</li>
         <li>L’API devra respecter les fondamentaux REST</li>
         <li>Les exceptions devront être gérées</li>
-        <li v-if="!surPlace">L’implémentation des tests unitaires</li>
+        <li v-if="!onSiteLang">L’implémentation des tests unitaires</li>
       </ul>
-      <br v-if="surPlace" />
-      <p v-if="surPlace">
+      <br v-if="onSiteLang" />
+      <p v-if="onSiteLang">
         Au vu de la courte durée du test, nous n'attendons pas de tests
         unitaires, mais tu devras nous expliquer, pendant l'entretien qui suit,
         quels tests tu aurais mis en place si tu avais eu plus de temps.
       </p>
-      <h2 v-if="!surPlace">Ce que l’on demande :</h2>
-      <ul v-if="!surPlace">
+      <h2 v-if="!onSiteLang">Ce que l’on demande :</h2>
+      <ul v-if="!onSiteLang">
         <li>Créer un nouveau repo Github</li>
         <li>Compléter les tâches avec tes technos préférées</li>
         <li>Créer le projet from scratch</li>
@@ -50,7 +50,7 @@
         <li>Envoyer le lien de ton repo</li>
       </ul>
       <h2>Pour pouvoir résoudre cette mission :</h2>
-      <p v-if="surPlace">
+      <p v-if="onSiteLang">
         Nous te fournissons des DTOs déjà remplis afin de simuler un appel
         externe à une API qui renvoie une liste de joueurs.
       </p>
@@ -91,7 +91,7 @@
             de la taille des joueurs
           </p>
         </Task>
-        <Task v-if="!surPlace" title="Tâche n°4" class="card-task"
+        <Task v-if="!onSiteLang" title="Tâche n°4" class="card-task"
           ><p class="text-tasks">Déploie ton projet sur le Cloud.</p>
         </Task>
       </div>
@@ -113,7 +113,7 @@ export default {
   data() {
     return {
       Json,
-      surPlace: true,
+      onSiteLang: true,
       file: {
         name: "headtohead.json",
         size: "3 Ko",
@@ -124,7 +124,7 @@ export default {
   mounted() {
     window.onscroll = this.onScroll;
 
-    switch (this.$route.query.lang) {
+    switch (this.$route.query.onSiteLang) {
       case "cs":
         this.file = {
           name: "PlayersProvider.cs",
@@ -147,7 +147,7 @@ export default {
         };
         break;
       default:
-        this.surPlace = false;
+        this.onSiteLang = false;
     }
   },
   methods: {
