@@ -13,7 +13,7 @@
         test technique.
       </p>
       <h2>Votre mission :</h2>
-      <p v-if="onSiteLang">
+      <p v-if="onSite">
         Créer une API simple permettant de retourner les statistiques des
         joueurs de tennis. Tu as une heure pour compléter les 3 tâches.
       </p>
@@ -30,16 +30,16 @@
         <li>L’architecture applicative</li>
         <li>L’API devra respecter les fondamentaux REST</li>
         <li>Les exceptions devront être gérées</li>
-        <li v-if="!onSiteLang">L’implémentation des tests unitaires</li>
+        <li v-if="!onSite">L’implémentation des tests unitaires</li>
       </ul>
-      <br v-if="onSiteLang" />
-      <p v-if="onSiteLang">
+      <br v-if="onSite" />
+      <p v-if="onSite">
         Au vu de la courte durée du test, nous n'attendons pas de tests
         unitaires, mais tu devras nous expliquer, pendant l'entretien qui suit,
         quels tests tu aurais mis en place si tu avais eu plus de temps.
       </p>
-      <h2 v-if="!onSiteLang">Ce que l’on demande :</h2>
-      <ul v-if="!onSiteLang">
+      <h2 v-if="!onSite">Ce que l’on demande :</h2>
+      <ul v-if="!onSite">
         <li>Créer un nouveau repo Github</li>
         <li>Compléter les tâches avec tes technos préférées</li>
         <li>Créer le projet from scratch</li>
@@ -50,7 +50,7 @@
         <li>Envoyer le lien de ton repo</li>
       </ul>
       <h2>Pour pouvoir résoudre cette mission :</h2>
-      <p v-if="onSiteLang">
+      <p v-if="onSite">
         Nous te fournissons des DTOs déjà remplis afin de simuler un appel
         externe à une API qui renvoie une liste de joueurs.
       </p>
@@ -91,7 +91,7 @@
             de la taille des joueurs
           </p>
         </Task>
-        <Task v-if="!onSiteLang" title="Tâche n°4" class="card-task"
+        <Task v-if="!onSite" title="Tâche n°4" class="card-task"
           ><p class="text-tasks">Déploie ton projet sur le Cloud.</p>
         </Task>
       </div>
@@ -113,7 +113,7 @@ export default {
   data() {
     return {
       Json,
-      onSiteLang: true,
+      onSite: false,
       file: {
         name: "headtohead.json",
         size: "3 Ko",
@@ -124,8 +124,9 @@ export default {
   mounted() {
     window.onscroll = this.onScroll;
 
-    switch (this.$route.query.onSiteLang) {
+    switch (this.$route.query.onSite) {
       case "cs":
+        this.onSite = true;
         this.file = {
           name: "PlayersProvider.cs",
           size: "5 Ko",
@@ -133,6 +134,7 @@ export default {
         };
         break;
       case "java":
+        this.onSite = true;
         this.file = {
           name: "PlayersProvider.zip",
           size: "2 Ko",
@@ -140,14 +142,13 @@ export default {
         };
         break;
       case "js":
+        this.onSite = true;
         this.file = {
           name: "players.js",
           size: "2 Ko",
           path: "/resources/backend/js/players.js",
         };
-        break;
-      default:
-        this.onSiteLang = false;
+        break;        
     }
   },
   methods: {
